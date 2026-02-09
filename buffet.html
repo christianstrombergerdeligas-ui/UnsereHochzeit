@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buffet Menü</title>
+  <title>Buffet</title>
   <link href="style.css" rel="stylesheet">
   <script src="admin.js"></script>
 </head>
@@ -20,7 +20,7 @@
       <a href="termine.html">Termine & Orte</a>
       <a href="anmeldung.html">Anmeldung zur Feier</a>
       <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
-      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet Menü</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
       <a href="fotos.html">Fotos</a>
       <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
       <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
@@ -29,54 +29,256 @@
   </header>
 
   <main>
+    <section id="buffetLocked" class="buffet-locked">
+      <div class="locked-content">
+        <div class="locked-icon">🔒</div>
+        <h1>Buffet-Menü</h1>
+        <p class="locked-message">Das Menü wird ab dem 01. Mai 2026 hier veröffentlicht. Freut euch auf kulinarische Köstlichkeiten!</p>
+        <div class="locked-date">📅 Verfügbar ab: 01.05.2026</div>
+      </div>
+    </section>
 
-  <section id="buffetLocked">
-    <p>Das Buffet Menü wird ab dem 01.05.2026 angezeigt.</p>
-  </section>
+    <section id="buffetContainer" class="buffet-content" style="display:none;">
+      <div class="buffet-hero">
+        <div class="buffet-hero-content">
+          <div class="buffet-hero-icon">🍽️</div>
+          <h1>Unser Buffet-Menü</h1>
+          <p class="buffet-hero-lead">Genießt eine vielfältige Auswahl an kulinarischen Köstlichkeiten, die wir mit viel Liebe für euch zusammengestellt haben.</p>
+        </div>
+      </div>
 
-  <section id="buffetContainer" style="display:none;">
-    <h2>Buffet</h2>
-    <p>Hier findet ihr das Menü für unser Hochzeits-Buffet.</p>
-    
-    <!-- BUFFET_CONTENT_START -->
-    <h3 style="margin-top: 2rem; color: #6B8E72;">Vorspeisen</h3>
-    <ul>
-      <li>Gemischter Salat mit Balsamico-Vinaigrette</li>
-      <li>Bruschetta mit Tomaten und Basilikum</li>
-      <li>Mozzarella-Sticks mit Marinara-Sauce</li>
-    </ul>
+      <!-- BUFFET_CONTENT_START -->
+      <div class="menu-showcase">
+        <div class="menu-grid-modern">
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🥗</div>
+              <h3>Vorspeisen</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Gemischter Salat</span>
+                <span class="item-desc">mit Balsamico-Vinaigrette</span>
+              </li>
+              <li>
+                <span class="item-name">Bruschetta</span>
+                <span class="item-desc">mit Tomaten und Basilikum</span>
+              </li>
+              <li>
+                <span class="item-name">Mozzarella-Sticks</span>
+                <span class="item-desc">mit Marinara-Sauce</span>
+              </li>
+            </ul>
+          </article>
 
-    <h3 style="margin-top: 2rem; color: #6B8E72;">Hauptgänge</h3>
-    <ul>
-      <li>Zartes Roastbeef mit Kräuterkruste</li>
-      <li>Lachs in Zitronenbutter</li>
-      <li>Hähnchen-Medaillons mit Champagner-Sauce</li>
-      <li>Vegetarische Lasagne mit Spinat und Ricotta</li>
-    </ul>
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🍖</div>
+              <h3>Hauptgänge</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Zartes Roastbeef</span>
+                <span class="item-desc">mit Kräuterkruste</span>
+              </li>
+              <li>
+                <span class="item-name">Lachs</span>
+                <span class="item-desc">in Zitronenbutter</span>
+              </li>
+              <li>
+                <span class="item-name">Hähnchen-Medaillons</span>
+                <span class="item-desc">mit Champagner-Sauce</span>
+              </li>
+            </ul>
+          </article>
 
-    <h3 style="margin-top: 2rem; color: #6B8E72;">Beilagen</h3>
-    <ul>
-      <li>Rosmarin-Kartoffeln</li>
-      <li>Gemischtes Gemüse der Saison</li>
-      <li>Frischer grüner Salat</li>
-      <li>Knuspriges Brot und Butter</li>
-    </ul>
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🥔</div>
+              <h3>Beilagen</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Rosmarin-Kartoffeln</span>
+                <span class="item-desc">&nbsp;</span>
+              </li>
+              <li>
+                <span class="item-name">Gemischtes Gemüse</span>
+                <span class="item-desc">der Saison</span>
+              </li>
+              <li>
+                <span class="item-name">Frischer grüner Salat</span>
+                <span class="item-desc">&nbsp;</span>
+              </li>
+            </ul>
+          </article>
 
-    <h3 style="margin-top: 2rem; color: #6B8E72;">Dessert</h3>
-    <ul>
-      <li>Hochzeitstorte mit Vanille-Creme</li>
-      <li>Frische Früchte und Beeren</li>
-      <li>Gebackene Profiteroles mit Schokoladensauce</li>
-      <li>Käseplatte mit Cracker und Konfitüren</li>
-    </ul>
-    <!-- BUFFET_CONTENT_END -->
-  </section>
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🥕</div>
+              <h3>Gemüse</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Glasierte Karotten</span>
+                <span class="item-desc">mit Honig und Thymian</span>
+              </li>
+              <li>
+                <span class="item-name">Grüne Bohnen</span>
+                <span class="item-desc">mit Mandelblättchen</span>
+              </li>
+              <li>
+                <span class="item-name">Gerösteter Brokkoli</span>
+                <span class="item-desc">mit Knoblauch</span>
+              </li>
+            </ul>
+          </article>
 
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🥄</div>
+              <h3>Soßen</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Kräuterbutter</span>
+                <span class="item-desc">hausgemacht</span>
+              </li>
+              <li>
+                <span class="item-name">Pfeffersauce</span>
+                <span class="item-desc">mild und cremig</span>
+              </li>
+              <li>
+                <span class="item-name">Aioli</span>
+                <span class="item-desc">mit Knoblauch</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🍕</div>
+              <h3>Mitternachtssnack</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Mini-Burger</span>
+                <span class="item-desc">mit Beef-Patty</span>
+              </li>
+              <li>
+                <span class="item-name">Pizza-Stücke</span>
+                <span class="item-desc">verschiedene Sorten</span>
+              </li>
+              <li>
+                <span class="item-name">Pommes Frites</span>
+                <span class="item-desc">knusprig und heiß</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-card" style="grid-column: 1 / -1; width: 66.66%; margin: 0 auto;">
+            <div class="menu-card-header">
+              <div class="menu-card-icon">🎂</div>
+              <h3>Kuchen und Torte</h3>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Hochzeitstorte</span>
+                <span class="item-desc">mit Vanille-Creme</span>
+              </li>
+              <li>
+                <span class="item-name">Schokoladenkuchen</span>
+                <span class="item-desc">saftig und schokoladig</span>
+              </li>
+              <li>
+                <span class="item-name">Obstkuchen</span>
+                <span class="item-desc">mit saisonalen Früchten</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <!-- BUFFET_CONTENT_END -->
+
+      <div class="buffet-info buffet-info-user">
+        <h2>Wichtige Informationen</h2>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">⏰</div>
+            <h3>Buffeteröffnung</h3>
+            <p>Das Buffet wird um [Uhrzeit] Uhr eröffnet. Unser Service-Personal steht euch den ganzen Abend für Getränke und Service zur Verfügung.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🥂</div>
+            <h3>Getränke</h3>
+            <p>Softdrinks, Wasser, Kaffee und Tee stehen den ganzen Tag zur Verfügung. Wein und Sekt werden zum Essen serviert.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Only Information -->
+      <div class="buffet-info buffet-info-admin admin-only" style="display:none;">
+        <h2>🔒 Anbieter-Informationen (nur für Admins)</h2>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">🍴</div>
+            <h3>Buffet-Catering</h3>
+            <p><strong>Anbieter:</strong> Klein Catering GmbH (Christopher Klein)<br>
+            <strong>Adresse:</strong> Hauptstr. 15, 67677 Enkenbach-Alsenborn<br>
+            <strong>Telefon:</strong> 0178 2561808 oder 0173 5188518<br>
+            <strong>E-Mail:</strong> info@klein-partyservice.de<br>
+            <strong>Website:</strong> <a href="https://klein-partyservice.de/" target="_blank">klein-partyservice.de</a></p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🎂</div>
+            <h3>Hochzeitstorte</h3>
+            <p><strong>Konditorei:</strong> Café Bännjerrück<br>
+            <strong>Adresse:</strong> Leipziger Str. 17, 67663 Kaiserslautern<br>
+            <strong>Telefon:</strong> 0631 59367</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">👔</div>
+            <h3>Service-Personal</h3>
+            <p><strong>Leistung:</strong> Service-Personal vor Ort<br>
+            <strong>Aufgaben:</strong> Getränkebedienung, Abräumen des Buffets, Teller & Besteck<br>
+            <strong>Bereitstellung:</strong> Klein Catering GmbH<br>
+            <strong>Zeitraum:</strong> [Uhrzeit Beginn] - [Uhrzeit Ende]</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     © 2026 Jenica und Christian
   </footer>
+
+  <script>
+    // Date gating for buffet content
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const buffetDate = new Date(2026, 4, 1); // May 1, 2026
+      const buffetLocked = document.getElementById('buffetLocked');
+      const buffetContainer = document.getElementById('buffetContainer');
+      
+      // Show buffet content if date is reached OR user is admin
+      if (today >= buffetDate || (window.isAdminMode && window.isAdminMode())) {
+        buffetLocked.style.display = 'none';
+        buffetContainer.style.display = 'block';
+      } else {
+        buffetLocked.style.display = 'block';
+        buffetContainer.style.display = 'none';
+      }
+
+      // Show admin-only sections for admin users
+      if (window.isAdminMode && window.isAdminMode()) {
+        const adminElements = document.querySelectorAll('.admin-only');
+        adminElements.forEach(element => {
+          element.style.display = 'block';
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

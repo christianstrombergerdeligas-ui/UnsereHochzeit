@@ -20,7 +20,7 @@
       <a href="termine.html">Termine & Orte</a>
       <a href="anmeldung.html">Anmeldung zur Feier</a>
       <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
-      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet Menü</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
       <a href="fotos.html">Fotos</a>
       <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
       <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
@@ -29,27 +29,140 @@
   </header>
 
   <main>
-    <section id="ablaufLocked">
-      <p>Der Ablaufplan wird ab dem 01.05.2026 angezeigt.</p>
+    <section id="ablaufLocked" class="schedule-locked">
+      <div class="locked-content">
+        <div class="locked-icon">🔒</div>
+        <h1>Ablaufplan</h1>
+        <p class="locked-message">Der detaillierte Ablauf unserer Hochzeit wird ab dem 01. Mai 2026 hier veröffentlicht. Seid gespannt!</p>
+        <div class="locked-date">📅 Verfügbar ab: 01.05.2026</div>
+      </div>
     </section>
 
-    <section id="ablaufContainer">
-      <h2>Ablaufplan Hochzeit</h2>
+    <section id="ablaufContainer" class="schedule-content" style="display:none;">
+      <div class="schedule-hero">
+        <div class="schedule-hero-content">
+          <div class="schedule-hero-icon">📋</div>
+          <h1>Ablaufplan des Tages</h1>
+          <p class="schedule-hero-lead">Hier findet ihr alle wichtigen Zeitpunkte und Programmpunkte unseres großen Tages im Überblick.</p>
+        </div>
+      </div>
+
       <!-- ABLAUFPLAN_CONTENT_START -->
-      <ul>
-        <li>10:30 Uhr – Trauung, Standesamt Kaiserslautern</li>
-        <li>12:00 Uhr – Sektempfang, Katholisches Pfarrheim Dansenberg</li>
-        <li>17:00 Uhr – Essen</li>
-        <li>20:00 Uhr – Hochzeitstorte</li>
-        <li>22:00–24:00 Uhr – Mitternachtssnack</li>
-      </ul>
+      <div class="schedule-timeline">
+        <div class="timeline-header">
+          <h2>15. Mai 2026</h2>
+          <p>Unser Hochzeitstag - Minute für Minute</p>
+        </div>
+
+        <div class="timeline-container-modern">
+          <article class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">10:30</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-icon">💍</div>
+              <h3>Trauung</h3>
+              <p class="timeline-location">📍 Standesamt Kaiserslautern</p>
+              <p class="timeline-description">Gebt uns das Ja-Wort und werdet Zeugen unseres Eheversprechens.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">12:00</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-icon">🥂</div>
+              <h3>Sektempfang</h3>
+              <p class="timeline-location">📍 Katholisches Pfarrheim Dansenberg</p>
+              <p class="timeline-description">Stoßt mit uns auf den Beginn unserer Ehe an und genießt die ersten Häppchen.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">17:00</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-icon">🍽️</div>
+              <h3>Festliches Essen</h3>
+              <p class="timeline-location">📍 Katholisches Pfarrheim Dansenberg</p>
+              <p class="timeline-description">Lasst euch von unserem köstlichen Buffet verwöhnen und genießt das gemeinsame Beisammensein.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">20:00</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-icon">🎂</div>
+              <h3>Hochzeitstorte</h3>
+              <p class="timeline-location">📍 Katholisches Pfarrheim Dansenberg</p>
+              <p class="timeline-description">Das süße Highlight des Abends - unsere traumhafte Hochzeitstorte wird angeschnitten.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-time">
+              <span class="time-badge">22:00</span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-icon">🌙</div>
+              <h3>Mitternachtssnack</h3>
+              <p class="timeline-location">📍 Katholisches Pfarrheim Dansenberg</p>
+              <p class="timeline-description">Stärkt euch für die Tanzfläche mit leckeren Snacks bis Mitternacht.</p>
+            </div>
+          </article>
+        </div>
+      </div>
       <!-- ABLAUFPLAN_CONTENT_END -->
+
+      <div class="schedule-info">
+        <h2>Wichtige Hinweise</h2>
+        <div class="info-boxes">
+          <div class="info-box">
+            <div class="info-box-icon">⏰</div>
+            <h3>Pünktlichkeit</h3>
+            <p>Bitte seid rechtzeitig vor Ort, damit wir pünktlich beginnen können. Plant genügend Zeit für die Anreise ein.</p>
+          </div>
+          <div class="info-box">
+            <div class="info-box-icon">👔</div>
+            <h3>Dresscode</h3>
+            <p>Festliche Kleidung erwünscht. Für die Damen: Cocktailkleid oder elegantes Kleid. Für die Herren: Anzug.</p>
+          </div>
+          <div class="info-box">
+            <div class="info-box-icon">🚗</div>
+            <h3>Parkmöglichkeiten</h3>
+            <p>Am Pfarrheim stehen ausreichend Parkplätze zur Verfügung. Bitte nutzt auch Fahrgemeinschaften.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     © 2026 Jenica und Christian
   </footer>
+
+  <script>
+    // Date gating for schedule content
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const ablaufDate = new Date(2026, 4, 1); // May 1, 2026
+      const ablaufLocked = document.getElementById('ablaufLocked');
+      const ablaufContainer = document.getElementById('ablaufContainer');
+      
+      // Show schedule content if date is reached OR user is admin
+      if (today >= ablaufDate || (window.isAdminMode && window.isAdminMode())) {
+        ablaufLocked.style.display = 'none';
+        ablaufContainer.style.display = 'block';
+      } else {
+        ablaufLocked.style.display = 'block';
+        ablaufContainer.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -6,8 +6,6 @@
   <title>Admin-Panel - Unsere Hochzeit</title>
   <link href="style.css" rel="stylesheet">
   <script src="admin.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <header>
@@ -22,7 +20,7 @@
       <a href="termine.html">Termine & Orte</a>
       <a href="anmeldung.html">Anmeldung zur Feier</a>
       <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
-      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet Menü</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
       <a href="fotos.html">Fotos</a>
       <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
       <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
@@ -32,90 +30,118 @@
 
   <main>
     <section id="adminOnlySection" style="display:none;">
-      <h2>📊 Admin-Panel</h2>
-      <p>Hier können Sie die Hochzeitsdaten verwalten und exportieren.</p>
-
-      <section style="background-color: #E1F5FE; margin-top: 2rem;">
-        <h3>🔍 Feature-Status Übersicht</h3>
-        <p>Welche Seiten sind aktuell für Gäste sichtbar?</p>
-        <div style="text-align: left; max-width: 600px; margin: 1rem auto; padding: 1rem; background-color: #FFF9F0; border-radius: 8px;">
-          <ul style="list-style: none; padding: 0;">
-            <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
-              <strong>Ablaufplan:</strong> <span id="ablaufplanStatus">🔒 Versteckt bis 01.05.2026</span>
-            </li>
-            <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
-              <strong>Buffet Menü:</strong> <span id="buffetStatus">🔒 Versteckt bis 01.05.2026</span>
-            </li>
-            <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
-              <strong>Gästebuch:</strong> <span id="guestbookStatus">🔒 Versteckt bis 15.05.2026</span>
-            </li>
-            <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">
-              <strong>Danksagung:</strong> <span id="danksagungStatus">🔒 Versteckt bis 16.05.2026</span>
-            </li>
-            <li style="padding: 0.5rem 0;">
-              <strong>Unsere Geschichte:</strong> <span style="color: #6B8E72;">🔒 Nur Admin (immer)</span>
-            </li>
-          </ul>
+      <div class="admin-hero">
+        <div class="admin-hero-content">
+          <div class="admin-hero-icon">⚙️</div>
+          <h1>Admin-Panel</h1>
+          <p class="admin-hero-lead">Verwaltung und Übersicht der Hochzeitswebsite</p>
         </div>
-      </section>
+      </div>
 
-      <section style="background-color: #F3E5F5; margin-top: 2rem;">
-        <h3>📋 Google Sheets Anmeldungen</h3>
-        <p>Alle Anmeldungen direkt in Google Sheets ansehen</p>
-        <a href="https://docs.google.com/spreadsheets/d/1pHiCuhNfCphu-kKfhQZCjK4CdD8iYDgTXxTt3iL1QH8/edit" target="_blank" style="display: inline-block; padding: 0.7rem 1.5rem; background-color: #6B8E72; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; margin-top: 1rem; transition: 0.3s;">
-          Sheets öffnen
-        </a>
-      </section>
+      <section class="admin-status-section">
+        <div class="status-container">
+          <h2>🔍 Feature-Status</h2>
+          <p class="section-intro">Übersicht über die Sichtbarkeit der Seiten für Gäste</p>
+          <div class="status-grid">
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">📅</span>
+                <h3>Ablaufplan</h3>
+              </div>
+              <div class="status-info">
+                <span id="ablaufplanStatus" class="status-badge">🔒 Versteckt bis 01.05.2026</span>
+              </div>
+            </div>
 
-      <section style="background-color: #F3E5F5; margin-top: 2rem;">
-        <h3>📔 Google Sheets Gästebuch</h3>
-        <p>Alle Gästebucheinträge direkt in Google Sheets ansehen</p>
-        <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" style="display: inline-block; padding: 0.7rem 1.5rem; background-color: #6B8E72; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; margin-top: 1rem; transition: 0.3s;">
-          Sheets öffnen
-        </a>
-      </section>
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">🍽️</span>
+                <h3>Buffet</h3>
+              </div>
+              <div class="status-info">
+                <span id="buffetStatus" class="status-badge">🔒 Versteckt bis 01.05.2026</span>
+              </div>
+            </div>
 
-      <section style="background-color: #E8EAF6; margin-top: 2rem;">
-        <h3>📸 Google Photos Album</h3>
-        <p>Alle hochgeladenen Fotos ansehen und verwalten</p>
-        <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" style="display: inline-block; padding: 0.7rem 1.5rem; background-color: #6B8E72; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; margin-top: 1rem; transition: 0.3s;">
-          Album öffnen
-        </a>
-      </section>
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">📖</span>
+                <h3>Gästebuch</h3>
+              </div>
+              <div class="status-info">
+                <span id="guestbookStatus" class="status-badge">🔒 Versteckt bis 15.05.2026</span>
+              </div>
+            </div>
 
-      <section style="background-color: #F1F8E9; margin-top: 2rem;">
-        <h3>✏️ Content Editor</h3>
-        <p>Bearbeite Inhalte direkt auf dieser Seite. Änderungen werden zu GitHub hochgeladen.</p>
-        
-        <div style="margin-top: 1.5rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">📖 Seite wählen:</label>
-          <select id="pageSelector" style="width: 100%; max-width: 500px; padding: 0.5rem; border-radius: 8px; border: 1px solid #d6e8d2;">
-            <option value="">-- Seite auswählen --</option>
-            <option value="startseite">Startseite</option>
-            <option value="geschichte">Unsere Geschichte</option>
-            <option value="buffet">Buffet Menü</option>
-            <option value="ablaufplan">Ablaufplan</option>
-            <option value="danksagung">Danksagung</option>
-          </select>
-        </div>
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">💐</span>
+                <h3>Danksagung</h3>
+              </div>
+              <div class="status-info">
+                <span id="danksagungStatus" class="status-badge">🔒 Versteckt bis 16.05.2026</span>
+              </div>
+            </div>
 
-        <div id="editorContainer" style="margin-top: 1.5rem; display: none;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">📝 Inhalt:</label>
-          <textarea id="contentEditor" style="width: 100%; max-width: 500px; min-height: 200px; padding: 0.75rem; border-radius: 8px; border: 1px solid #d6e8d2; font-family: 'Roboto', monospace; font-size: 0.9rem;"></textarea>
-          
-          <div style="margin-top: 1rem; display: flex; gap: 1rem;">
-            <button id="saveContentBtn" style="background-color: #4CAF50;">💾 Speichern & Hochladen</button>
-            <button id="cancelContentBtn" style="background-color: #999;">Abbrechen</button>
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">❤️</span>
+                <h3>Unsere Geschichte</h3>
+              </div>
+              <div class="status-info">
+                <span class="status-badge admin-only">🔒 Nur Admin</span>
+              </div>
+            </div>
           </div>
-          <p id="editorStatus" style="margin-top: 0.5rem; font-size: 0.9rem; color: #6B8E72;"></p>
+        </div>
+      </section>
+
+      <section class="admin-links-section">
+        <div class="links-container">
+          <h2>📊 Daten & Verwaltung</h2>
+          <p class="section-intro">Direktzugriff auf alle wichtigen Google-Dienste</p>
+          <div class="admin-cards-grid">
+            <article class="admin-link-card">
+              <div class="link-card-icon">📋</div>
+              <h3>Anmeldungen</h3>
+              <p>Alle RSVP-Anmeldungen zur Feier ansehen und verwalten</p>
+              <a href="https://docs.google.com/spreadsheets/d/1pHiCuhNfCphu-kKfhQZCjK4CdD8iYDgTXxTt3iL1QH8/edit" target="_blank" class="external-link-button">
+                <span>Sheets öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📔</div>
+              <h3>Gästebuch</h3>
+              <p>Alle Gästebucheinträge und Glückwünsche einsehen</p>
+              <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="external-link-button">
+                <span>Sheets öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📸</div>
+              <h3>Foto-Album</h3>
+              <p>Alle von Gästen hochgeladenen Fotos verwalten</p>
+              <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="external-link-button">
+                <span>Album öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+          </div>
         </div>
       </section>
     </section>
 
-    <section id="notAdminSection">
-      <h2>Zugriff verweigert</h2>
-      <p>Diese Seite ist nur im Admin-Modus verfügbar.</p>
-      <p>Bitte melden Sie sich mit dem Admin-Passwort an.</p>
+    <section id="notAdminSection" class="access-denied">
+      <div class="denied-content">
+        <div class="access-icon">🔒</div>
+        <h2>Zugriff verweigert</h2>
+        <p>Diese Seite ist nur im Admin-Modus verfügbar.</p>
+        <p class="access-hint">Bitte melden Sie sich mit dem Admin-Passwort an.</p>
+      </div>
     </section>
   </main>
 
@@ -142,9 +168,6 @@
     function setupExportButtons() {
       // Feature-Status aktualisieren
       updateFeatureStatus();
-      
-      // QR-Code generieren
-      generateQRCode();
     }
 
     function updateFeatureStatus() {
@@ -162,132 +185,6 @@
         today >= guestbookDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 15.05.2026';
       document.getElementById('danksagungStatus').innerHTML = 
         today >= danksagungDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 16.05.2026';
-    }
-
-    function generateQRCode() {
-      const qrcodeContainer = document.getElementById('qrcode');
-      qrcodeContainer.innerHTML = '';
-      new QRCode(qrcodeContainer, {
-        text: window.location.origin + '/index.html',
-        width: 200,
-        height: 200,
-        colorDark: '#3C5A40',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-
-    // ===== Content Editor für GitHub via Worker =====
-    const WORKER_URL = 'https://wedding-content-api.christianstrombergerdeligas-ui.workers.dev';
-
-    const contentBlocks = {
-      startseite: { file: 'index.html' },
-      geschichte: { file: 'geschichte.html' },
-      buffet: { file: 'buffet.html' },
-      ablaufplan: { file: 'ablaufplan.html' },
-      danksagung: { file: 'danksagung.html' }
-    };
-
-    document.getElementById('pageSelector').addEventListener('change', async (e) => {
-      const page = e.target.value;
-      if (!page) {
-        document.getElementById('editorContainer').style.display = 'none';
-        return;
-      }
-      
-      const container = document.getElementById('editorContainer');
-      const textarea = document.getElementById('contentEditor');
-      const status = document.getElementById('editorStatus');
-      
-      container.style.display = 'block';
-      status.textContent = '⏳ Inhalt wird geladen...';
-      
-      try {
-        const content = await loadContentFromWorker(page);
-        textarea.value = content;
-        status.textContent = '✅ Inhalt geladen';
-      } catch (error) {
-        status.textContent = '❌ Fehler beim Laden: ' + error.message;
-      }
-    });
-
-    document.getElementById('saveContentBtn').addEventListener('click', async () => {
-      const page = document.getElementById('pageSelector').value;
-      const content = document.getElementById('contentEditor').value;
-      const status = document.getElementById('editorStatus');
-      
-      if (!window.isAdminMode || !window.isAdminMode()) {
-        status.textContent = '❌ Nur Admin kann speichern!';
-        return;
-      }
-      
-      status.textContent = '⏳ Speichern...';
-      
-      try {
-        await saveContentToWorker(page, content);
-        status.textContent = '✅ Erfolgreich gespeichert! Deploy läuft...';
-      } catch (error) {
-        status.textContent = '❌ Fehler: ' + error.message;
-      }
-    });
-
-    document.getElementById('cancelContentBtn').addEventListener('click', () => {
-      document.getElementById('pageSelector').value = '';
-      document.getElementById('editorContainer').style.display = 'none';
-      document.getElementById('contentEditor').value = '';
-    });
-
-    async function loadContentFromWorker(page) {
-      try {
-        const response = await fetch(`${WORKER_URL}/api/content/${page}`, {
-          headers: {
-            'Authorization': 'Bearer admin-session'
-          }
-        });
-        
-        if (!response.ok) {
-          const errorText = await response.text().catch(() => response.statusText);
-          throw new Error(`HTTP ${response.status}: ${errorText}`);
-        }
-        
-        const data = await response.json();
-        if (data.error) throw new Error(data.error);
-        
-        return data.content;
-      } catch (error) {
-        if (error.message.includes('Failed to fetch')) {
-          throw new Error('Worker nicht erreichbar. CORS-Problem oder Worker offline?');
-        }
-        throw error;
-      }
-    }
-
-    async function saveContentToWorker(page, newContent) {
-      try {
-        const response = await fetch(`${WORKER_URL}/api/content/${page}`, {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer admin-session',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ content: newContent })
-        });
-        
-        if (!response.ok) {
-          const errorText = await response.text().catch(() => response.statusText);
-          throw new Error(`HTTP ${response.status}: ${errorText}`);
-        }
-        
-        const data = await response.json();
-        if (data.error) throw new Error(data.error);
-        
-        return true;
-      } catch (error) {
-        if (error.message.includes('Failed to fetch')) {
-          throw new Error('Worker nicht erreichbar. CORS-Problem oder Worker offline?');
-        }
-        throw error;
-      }
     }
 
     updateAdminView();
