@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin-Panel - Unsere Hochzeit</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="admin.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Unsere Hochzeit</h1>
+      <button id="hamburger" class="hamburger">☰</button>
+      <button id="adminToggle" class="admin-toggle" title="Admin">🔒</button>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Start</a>
+      <a href="geschichte.html" id="historyLink" style="display:none;">Unsere Geschichte</a>
+      <a href="termine.html">Termine & Orte</a>
+      <a href="anmeldung.html">Anmeldung zur Feier</a>
+      <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
+      <a href="fotos.html">Fotos</a>
+      <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
+      <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
+      <a href="admin.html" id="adminLink" style="display:none;">⚙️ Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="adminOnlySection" style="display:none;">
+      <div class="admin-hero">
+        <div class="admin-hero-content">
+          <div class="admin-hero-icon">⚙️</div>
+          <h1>Admin-Panel</h1>
+          <p class="admin-hero-lead">Verwaltung und Übersicht der Hochzeitswebsite</p>
+        </div>
+      </div>
+
+      <section class="admin-status-section">
+        <div class="status-container">
+          <h2>🔍 Feature-Status</h2>
+          <p class="section-intro">Übersicht über die Sichtbarkeit der Seiten für Gäste</p>
+          <div class="status-grid">
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">📅</span>
+                <h3>Ablaufplan</h3>
+              </div>
+              <div class="status-info">
+                <span id="ablaufplanStatus" class="status-badge">🔒 Versteckt bis 01.05.2026</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">🍽️</span>
+                <h3>Buffet</h3>
+              </div>
+              <div class="status-info">
+                <span id="buffetStatus" class="status-badge">🔒 Versteckt bis 01.05.2026</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">📖</span>
+                <h3>Gästebuch</h3>
+              </div>
+              <div class="status-info">
+                <span id="guestbookStatus" class="status-badge">🔒 Versteckt bis 15.05.2026</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">💐</span>
+                <h3>Danksagung</h3>
+              </div>
+              <div class="status-info">
+                <span id="danksagungStatus" class="status-badge">🔒 Versteckt bis 16.05.2026</span>
+              </div>
+            </div>
+
+            <div class="status-card">
+              <div class="status-header">
+                <span class="status-emoji">❤️</span>
+                <h3>Unsere Geschichte</h3>
+              </div>
+              <div class="status-info">
+                <span class="status-badge admin-only">🔒 Nur Admin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-links-section">
+        <div class="links-container">
+          <h2>📊 Daten & Verwaltung</h2>
+          <p class="section-intro">Direktzugriff auf alle wichtigen Google-Dienste</p>
+          <div class="admin-cards-grid">
+            <article class="admin-link-card">
+              <div class="link-card-icon">📋</div>
+              <h3>Anmeldungen</h3>
+              <p>Alle RSVP-Anmeldungen zur Feier ansehen und verwalten</p>
+              <a href="https://docs.google.com/spreadsheets/d/1pHiCuhNfCphu-kKfhQZCjK4CdD8iYDgTXxTt3iL1QH8/edit" target="_blank" class="external-link-button">
+                <span>Sheets öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📔</div>
+              <h3>Gästebuch</h3>
+              <p>Alle Gästebucheinträge und Glückwünsche einsehen</p>
+              <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="external-link-button">
+                <span>Sheets öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📸</div>
+              <h3>Foto-Album</h3>
+              <p>Alle von Gästen hochgeladenen Fotos verwalten</p>
+              <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="external-link-button">
+                <span>Album öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="notAdminSection" class="access-denied">
+      <div class="denied-content">
+        <div class="access-icon">🔒</div>
+        <h2>Zugriff verweigert</h2>
+        <p>Diese Seite ist nur im Admin-Modus verfügbar.</p>
+        <p class="access-hint">Bitte melden Sie sich mit dem Admin-Passwort an.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jenica und Christian
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const adminSection = document.getElementById('adminOnlySection');
+    const notAdminSection = document.getElementById('notAdminSection');
+
+    function updateAdminView() {
+      if (window.isAdminMode && window.isAdminMode()) {
+        adminSection.style.display = 'block';
+        notAdminSection.style.display = 'none';
+        setupExportButtons();
+      } else {
+        adminSection.style.display = 'none';
+        notAdminSection.style.display = 'block';
+      }
+    }
+
+    function setupExportButtons() {
+      // Feature-Status aktualisieren
+      updateFeatureStatus();
+    }
+
+    function updateFeatureStatus() {
+      const today = new Date();
+      const ablaufplanDate = new Date(2026, 4, 1);
+      const buffetDate = new Date(2026, 4, 1);
+      const guestbookDate = new Date(2026, 4, 15);
+      const danksagungDate = new Date(2026, 4, 16);
+
+      document.getElementById('ablaufplanStatus').innerHTML = 
+        today >= ablaufplanDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 01.05.2026';
+      document.getElementById('buffetStatus').innerHTML = 
+        today >= buffetDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 01.05.2026';
+      document.getElementById('guestbookStatus').innerHTML = 
+        today >= guestbookDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 15.05.2026';
+      document.getElementById('danksagungStatus').innerHTML = 
+        today >= danksagungDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 16.05.2026';
+    }
+
+    updateAdminView();
+    window.addEventListener('adminStateChanged', updateAdminView);
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startseite - Unsere Hochzeit</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="admin.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Unsere Hochzeit</h1>
+      <button id="hamburger" class="hamburger">☰</button>
+      <button id="adminToggle" class="admin-toggle" title="Admin">🔒</button>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Start</a>
+      <a href="geschichte.html" id="historyLink" style="display:none;">Unsere Geschichte</a>
+      <a href="termine.html">Termine & Orte</a>
+      <a href="anmeldung.html">Anmeldung zur Feier</a>
+      <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
+      <a href="fotos.html">Fotos</a>
+      <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
+      <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
+      <a href="admin.html" id="adminLink" style="display:none;">⚙️ Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- STARTSEITE_CONTENT_START -->
+      <div class="hero-content">
+        <div class="hero-greeting">✨</div>
+        <h2 class="hero-title">Willkommen auf unserer Hochzeitsseite!</h2>
+        <p class="hero-subtitle">Wir freuen uns riesig, dass ihr Teil unseres großen Tages sein werdet. Hier findet ihr alle wichtigen Informationen rund um unsere Hochzeit.</p>
+      </div>
+      
+      <div class="hero-image" id="imagePlaceholder">
+        <img src="Bilder/Das-sind-wir.jpeg" alt="Jenica & Christian" loading="lazy">
+      </div>
+      <!-- STARTSEITE_CONTENT_END -->
+    </section>
+
+    <section class="countdown-section">
+      <div class="countdown-container">
+        <h2>Countdown bis zur Hochzeit</h2>
+        <div class="countdown-timer">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">0</span>
+            <span class="countdown-label">Tage</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">0</span>
+            <span class="countdown-label">Stunden</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">0</span>
+            <span class="countdown-label">Minuten</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">0</span>
+            <span class="countdown-label">Sekunden</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="save-the-date">
+      <div class="date-container">
+        <div class="date-icon">💒</div>
+        <h2>Save the Date</h2>
+        <div class="wedding-date">
+          <span class="date-day">15</span>
+          <span class="date-divider">.</span>
+          <span class="date-month">Mai</span>
+          <span class="date-divider">.</span>
+          <span class="date-year">2026</span>
+        </div>
+        <p class="date-tagline">Jenica & Christian geben sich das Ja-Wort</p>
+        <div class="date-location">
+          <span class="location-icon">📍</span>
+          <span>Kaiserslautern</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-info">
+      <h2>Wichtige Informationen</h2>
+      <div class="info-grid">
+        <a href="termine.html" class="info-card-link">
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+            <h3>Termine & Orte</h3>
+            <p>Alle Details zu Trauung und Feier</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="anmeldung.html" class="info-card-link">
+          <div class="info-card">
+            <div class="info-icon">💌</div>
+            <h3>Anmeldung</h3>
+            <p>Bitte meldet euch bis 01. Mai an</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="fotos.html" class="info-card-link">
+          <div class="info-card">
+            <div class="info-icon">📸</div>
+            <h3>Fotos</h3>
+            <p>Teilt eure schönsten Momente mit uns</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="gaestebuch.html" class="info-card-link" id="guestbookCard" style="display:none;">
+          <div class="info-card">
+            <div class="info-icon">✍️</div>
+            <h3>Gästebuch</h3>
+            <p>Hinterlasst uns eure Grüße</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="welcome-message">
+      <div class="message-box">
+        <h2>Liebe Familie & Freunde</h2>
+        <p>Wir möchten diesen besonderen Tag mit den Menschen feiern, die uns am Herzen liegen. Auf dieser Website findet ihr alle wichtigen Informationen zur Hochzeit – vom Ablauf über das Menü bis hin zu Fotos und Gästebuch.</p>
+        <p>Klickt euch durch die verschiedenen Bereiche und meldet euch rechtzeitig an. Wir freuen uns auf euch!</p>
+        <p class="message-signature">Eure Jenica & Christian 💕</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jenica und Christian
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Gästebuch-Karte anzeigen wenn verfügbar
+      const guestbookDate = new Date(2026, 4, 15); // 15. Mai 2026
+      const today = new Date();
+      const guestbookCard = document.getElementById('guestbookCard');
+      
+      if (today >= guestbookDate || (window.isAdminMode && window.isAdminMode())) {
+        if (guestbookCard) {
+          guestbookCard.style.display = 'block';
+        }
+      }
+
+      // Countdown zur Hochzeit
+      const weddingDate = new Date(2026, 4, 15, 10, 30, 0); // 15. Mai 2026, 10:30 Uhr
+      
+      function updateCountdown() {
+        const now = new Date();
+        const difference = weddingDate - now;
+        
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          
+          document.getElementById('days').textContent = days;
+          document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        } else {
+          // Hochzeit ist vorbei
+          document.getElementById('days').textContent = '0';
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+        }
+      }
+      
+      // Countdown initial starten und jede Sekunde aktualisieren
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+</html>
