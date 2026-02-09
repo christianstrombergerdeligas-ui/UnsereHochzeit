@@ -21,7 +21,7 @@
       <a href="termine.html">Termine & Orte</a>
       <a href="anmeldung.html">Anmeldung zur Feier</a>
       <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
-      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet Menü</a>
       <a href="fotos.html">Fotos</a>
       <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
       <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
@@ -29,53 +29,19 @@
     </nav>
   </header>
 
-  <main>
-    <section id="danksagungSection" class="gratitude-hero">
-      <div class="gratitude-content">
-        <div class="gratitude-icon">💝</div>
-        <h1>Von Herzen Danke</h1>
-        <!-- DANKSAGUNG_CONTENT_START -->
-        <p class="gratitude-lead">Wir danken allen Gästen für ihre Unterstützung, Liebe und die wunderschönen Momente an unserem großen Tag!</p>
-        <!-- DANKSAGUNG_CONTENT_END -->
-        <div class="gratitude-divider"></div>
-      </div>
-    </section>
+<main>
+  <section id="danksagungSection">
+    <h2>Danksagung</h2>
+    <!-- DANKSAGUNG_CONTENT_START -->
+    <p>Wir danken allen Gästen für ihre Unterstützung, Liebe und die wunderschönen Momente an unserem großen Tag!</p>
+    <!-- DANKSAGUNG_CONTENT_END -->
+  </section>
 
-    <section class="thanks-grid">
-      <h2>Besonderer Dank an</h2>
-      
-      <div class="thanks-cards">
-        <article class="thanks-card">
-          <div class="thanks-card-icon">👨‍👩‍👧‍👦</div>
-          <h3>Unsere Familien</h3>
-          <p>Für eure bedingungslose Unterstützung und Liebe während der gesamten Hochzeitsvorbereitungen und darüber hinaus.</p>
-        </article>
-
-        <article class="thanks-card">
-          <div class="thanks-card-icon">👥</div>
-          <h3>Unsere Freunde</h3>
-          <p>Für eure Hilfe, euren Rat und dafür, dass ihr diesen besonderen Tag mit uns gefeiert habt.</p>
-        </article>
-
-        <article class="thanks-card">
-          <div class="thanks-card-icon">🎭</div>
-          <h3>Alle Helfer</h3>
-          <p>Für euren unermüdlichen Einsatz, der unsere Hochzeit zu einem unvergesslichen Erlebnis gemacht hat.</p>
-        </article>
-
-        <article class="thanks-card">
-          <div class="thanks-card-icon">🎁</div>
-          <h3>Für eure Geschenke</h3>
-          <p>Jedes Geschenk, jede Geste und jedes liebe Wort hat uns zutiefst berührt und wird uns immer in Erinnerung bleiben.</p>
-        </article>
-      </div>
-
-      <div class="closing-message">
-        <p>Eure Anwesenheit und eure Liebe haben unseren Tag perfekt gemacht. Wir fühlen uns gesegnet, euch alle in unserem Leben zu haben.</p>
-        <p class="signature">Mit liebevollen Grüßen,<br><strong>Jenica & Christian</strong></p>
-      </div>
-    </section>
-  </main>
+  <section>
+    <h2>Besondere Worte</h2>
+    <p>Hier werden später persönliche Danksagungen und Grüße angezeigt.</p>
+  </section>
+</main>
 
 <footer>
   © 2026 Jenica und Christian
@@ -83,15 +49,11 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const releaseDate = new Date('2026-05-16T00:00:00');
+  const releaseDate = new Date('2026-05-20T00:00:00');
   const section = document.getElementById('danksagungSection');
 
-  if(new Date() < releaseDate && (!window.isAdminMode || !window.isAdminMode())){
-    section.innerHTML = `
-      <div class="gratitude-icon">🔒</div>
-      <h1>Danksagung</h1>
-      <p class="gratitude-lead">Diese Seite wird nach unserer Hochzeit am 16. Mai 2026 verfügbar sein. Wir freuen uns darauf, uns dann bei euch allen zu bedanken!</p>
-    `;
+  if(new Date() < releaseDate){
+    section.innerHTML = '<h2>Danksagung</h2><p>Diese Seite wird erst nach unserer Hochzeit verfügbar sein. Bitte schaut später wieder vorbei!</p>';
   }
 });
 </script>
