@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -58,27 +58,57 @@
         </div>
       </section>
 
-      <!-- Schnellzugriff Statistiken -->
-      <section class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon">📋</div>
-          <h3>Anmeldungen</h3>
-          <a href="https://docs.google.com/spreadsheets/d/1pHiCuhNfCphu-kKfhQZCjK4CdD8iYDgTXxTt3iL1QH8/edit" target="_blank" class="stat-link">Sheets öffnen →</a>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">📔</div>
-          <h3>Gästebuch</h3>
-          <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="stat-link">Sheets öffnen →</a>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">📸</div>
-          <h3>Fotos</h3>
-          <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="stat-link">Album öffnen →</a>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🎵</div>
-          <h3>Musik-Playlist</h3>
-          <a href="https://open.spotify.com/playlist/17b3q1HeMFWk0jFn1SCz0F" target="_blank" class="stat-link">Spotify öffnen →</a>
+      <section class="admin-links-section">
+        <div class="links-container">
+          <h2>📊 Daten & Verwaltung</h2>
+          <p class="section-intro">Direktzugriff auf alle wichtigen Google-Dienste</p>
+          <div class="admin-cards-grid">
+            <article class="admin-link-card">
+              <div class="link-card-icon">📋</div>
+              <h3>Gäste-Anmeldungen</h3>
+              <p>Verwalte Anmeldungen und Formular-Einträge</p>
+              <div class="dual-link-buttons">
+                <a href="https://docs.google.com/spreadsheets/d/1SwjMCVS46jWZfRo3TKmKw7Vn-Ctw-ZEu0FNl9DaPRoA/edit" target="_blank" class="external-link-button">
+                  <span>Sheets</span>
+                  <span class="button-arrow">→</span>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYBf7pFwShJtmzqDOHgxlK_lLpNWErDJAb5DTMiYKV25i_uA/viewform?usp=sharing" target="_blank" class="external-link-button">
+                  <span>Formular</span>
+                  <span class="button-arrow">→</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📔</div>
+              <h3>Gästebuch</h3>
+              <p>Alle Gästebucheinträge und Glückwünsche einsehen</p>
+              <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="external-link-button">
+                <span>Sheets öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">📸</div>
+              <h3>Foto-Album</h3>
+              <p>Alle von Gästen hochgeladenen Fotos verwalten</p>
+              <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="external-link-button">
+                <span>Album öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+
+            <article class="admin-link-card">
+              <div class="link-card-icon">🎵</div>
+              <h3>Musik-Playlist</h3>
+              <p>Hochzeits-Playlist bei Spotify</p>
+              <a href="https://open.spotify.com/playlist/17b3q1HeMFWk0jFn1SCz0F" target="_blank" class="external-link-button">
+                <span>Spotify öffnen</span>
+                <span class="button-arrow">→</span>
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -188,108 +218,6 @@
           </div>
         </div>
       </section>
-      <!-- Gästelisten-Verwaltung -->
-      <section class="guest-list-section">
-        <div class="guest-list-container">
-          <h2>👥 Gästelisten-Verwaltung</h2>
-          <p class="section-intro">Vergleich zwischen Gästeliste und Anmeldungen</p>
-          
-          <!-- Gast hinzufügen -->
-          <div class="add-guest-form">
-            <input type="text" id="guestNameInput" placeholder="Name des Gastes eingeben..." class="guest-input">
-            <button onclick="addGuest()" class="add-guest-btn">+ Gast hinzufügen</button>
-            <button onclick="exportGuests()" class="export-btn">📥 Exportieren</button>
-            <button onclick="document.getElementById('importFile').click()" class="import-btn">📤 Importieren</button>
-            <input type="file" id="importFile" style="display:none;" accept=".json,.csv" onchange="importGuests(event)">
-          </div>
-
-          <!-- Statistiken -->
-          <div class="guest-stats">
-            <div class="stat-box confirmed">
-              <div class="stat-number" id="confirmedCount">0</div>
-              <div class="stat-label">✅ Zugesagt</div>
-            </div>
-            <div class="stat-box declined">
-              <div class="stat-number" id="declinedCount">0</div>
-              <div class="stat-label">❌ Abgesagt</div>
-            </div>
-            <div class="stat-box pending">
-              <div class="stat-number" id="pendingCount">0</div>
-              <div class="stat-label">⏳ Ausstehend</div>
-            </div>
-            <div class="stat-box total">
-              <div class="stat-number" id="totalCount">0</div>
-              <div class="stat-label">👥 Gesamt</div>
-            </div>
-          </div>
-
-          <!-- Gästelisten-Tabelle -->
-          <div class="guest-list-table-wrapper">
-            <table class="guest-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Status</th>
-                  <th>Aktion</th>
-                </tr>
-              </thead>
-              <tbody id="guestTableBody">
-                <tr class="empty-state">
-                  <td colspan="3">📋 Noch keine Gäste hinzugefügt. Starten Sie mit "+ Gast hinzufügen"</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-      <section class="admin-links-section">
-        <div class="links-container">
-          <h2>📊 Daten & Verwaltung</h2>
-          <p class="section-intro">Direktzugriff auf alle wichtigen Google-Dienste</p>
-          <div class="admin-cards-grid">
-            <article class="admin-link-card">
-              <div class="link-card-icon">📋</div>
-              <h3>Anmeldungen</h3>
-              <p>Alle RSVP-Anmeldungen zur Feier ansehen und verwalten</p>
-              <a href="https://docs.google.com/spreadsheets/d/1SwjMCVS46jWZfRo3TKmKw7Vn-Ctw-ZEu0FNl9DaPRoA/edit" target="_blank" class="external-link-button">
-                <span>Sheets öffnen</span>
-                <span class="button-arrow">→</span>
-              </a>
-            </article>
-
-            <article class="admin-link-card">
-              <div class="link-card-icon">�</div>
-              <h3>Anmeldeformular</h3>
-              <p>Google Form für Gäste-Anmeldungen</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYBf7pFwShJtmzqDOHgxlK_lLpNWErDJAb5DTMiYKV25i_uA/viewform?usp=sharing" target="_blank" class="external-link-button">
-                <span>Form öffnen</span>
-                <span class="button-arrow">→</span>
-              </a>
-            </article>
-
-            <article class="admin-link-card">
-              <div class="link-card-icon">�📔</div>
-              <h3>Gästebuch</h3>
-              <p>Alle Gästebucheinträge und Glückwünsche einsehen</p>
-              <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="external-link-button">
-                <span>Sheets öffnen</span>
-                <span class="button-arrow">→</span>
-              </a>
-            </article>
-
-            <article class="admin-link-card">
-              <div class="link-card-icon">📸</div>
-              <h3>Foto-Album</h3>
-              <p>Alle von Gästen hochgeladenen Fotos verwalten</p>
-              <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="external-link-button">
-                <span>Album öffnen</span>
-                <span class="button-arrow">→</span>
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-    </section>
 
     <section id="notAdminSection" class="access-denied">
       <div class="denied-content">
@@ -324,14 +252,14 @@
       if (window.isAdminMode && window.isAdminMode()) {
         adminSection.style.display = 'block';
         notAdminSection.style.display = 'none';
-        setupExportButtons();
+        setupAdminPanel();
       } else {
         adminSection.style.display = 'none';
         notAdminSection.style.display = 'block';
       }
     }
 
-    function setupExportButtons() {
+    function setupAdminPanel() {
       // Feature-Status aktualisieren
       updateFeatureStatus();
     }
@@ -351,165 +279,6 @@
         today >= guestbookDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 15.05.2026';
       document.getElementById('danksagungStatus').innerHTML = 
         today >= danksagungDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 16.05.2026';
-    }
-
-    // Gästelisten-Funktionen
-    function addGuest() {
-      const input = document.getElementById('guestNameInput');
-      const name = input.value.trim();
-      
-      if (!name) {
-        alert('Bitte einen Namen eingeben!');
-        return;
-      }
-      
-      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
-      
-      if (guests.some(g => g.name.toLowerCase() === name.toLowerCase())) {
-        alert('Dieser Gast existiert bereits!');
-        return;
-      }
-      
-      guests.push({ name, status: 'pending' });
-      localStorage.setItem('weddingGuests', JSON.stringify(guests));
-      input.value = '';
-      updateGuestList();
-    }
-
-    function removeGuest(name) {
-      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
-      guests = guests.filter(g => g.name !== name);
-      localStorage.setItem('weddingGuests', JSON.stringify(guests));
-      updateGuestList();
-    }
-
-    function setGuestStatus(name, status) {
-      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
-      const guest = guests.find(g => g.name === name);
-      if (guest) {
-        guest.status = status;
-        localStorage.setItem('weddingGuests', JSON.stringify(guests));
-        updateGuestList();
-      }
-    }
-
-    function exportGuests() {
-      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
-      
-      if (guests.length === 0) {
-        alert('Keine Gäste zum Exportieren vorhanden!');
-        return;
-      }
-      
-      // CSV exportieren
-      let csv = 'Name,Status\n';
-      guests.forEach(guest => {
-        csv += `"${guest.name}","${guest.status}"\n`;
-      });
-      
-      // File Download
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `gaestenliste_${new Date().toISOString().split('T')[0]}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-    }
-
-    function importGuests(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const content = e.target.result;
-          let guests = [];
-          
-          if (file.name.endsWith('.csv')) {
-            // CSV Parse
-            const lines = content.split('\n');
-            for (let i = 1; i < lines.length; i++) {
-              if (lines[i].trim() === '') continue;
-              const [name, status] = lines[i].split(',').map(s => s.trim().replace(/^"|"$/g, ''));
-              if (name) {
-                guests.push({ name, status: status || 'pending' });
-              }
-            }
-          } else if (file.name.endsWith('.json')) {
-            // JSON Parse
-            guests = JSON.parse(content);
-          } else {
-            alert('Nur .csv oder .json Dateien werden unterstützt!');
-            return;
-          }
-          
-          if (guests.length === 0) {
-            alert('Keine gültigen Gäste in der Datei gefunden!');
-            return;
-          }
-          
-          if (confirm(`${guests.length} Gäste importieren und bestehende Daten ersetzen?`)) {
-            localStorage.setItem('weddingGuests', JSON.stringify(guests));
-            updateGuestList();
-            alert('✅ Gäste erfolgreich importiert!');
-          }
-        } catch (err) {
-          alert('❌ Fehler beim Importieren: ' + err.message);
-        }
-      };
-      reader.readAsText(file);
-      
-      // Reset file input
-      event.target.value = '';
-    }
-
-    function updateGuestList() {
-      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
-      const tbody = document.getElementById('guestTableBody');
-      
-      if (guests.length === 0) {
-        tbody.innerHTML = '<tr class="empty-state"><td colspan="3">📋 Noch keine Gäste hinzugefügt. Starten Sie mit "+ Gast hinzufügen"</td></tr>';
-      } else {
-        tbody.innerHTML = guests.map(guest => `
-          <tr class="guest-row status-${guest.status}">
-            <td class="guest-name">${guest.name}</td>
-            <td class="guest-status">
-              <select onchange="setGuestStatus('${guest.name}', this.value)" class="status-select">
-                <option value="pending" ${guest.status === 'pending' ? 'selected' : ''}>⏳ Ausstehend</option>
-                <option value="confirmed" ${guest.status === 'confirmed' ? 'selected' : ''}>✅ Zugesagt</option>
-                <option value="declined" ${guest.status === 'declined' ? 'selected' : ''}>❌ Abgesagt</option>
-              </select>
-            </td>
-            <td class="guest-action">
-              <button onclick="removeGuest('${guest.name}')" class="delete-btn">🗑️</button>
-            </td>
-          </tr>
-        `).join('');
-      }
-      
-      // Statistiken aktualisieren
-      const confirmed = guests.filter(g => g.status === 'confirmed').length;
-      const declined = guests.filter(g => g.status === 'declined').length;
-      const pending = guests.filter(g => g.status === 'pending').length;
-      
-      document.getElementById('confirmedCount').textContent = confirmed;
-      document.getElementById('declinedCount').textContent = declined;
-      document.getElementById('pendingCount').textContent = pending;
-      document.getElementById('totalCount').textContent = guests.length;
-    }
-
-    // Gästeliste beim Laden initialisieren
-    updateGuestList();
-
-    // Enter-Taste zum Hinzufügen aktivieren
-    if (document.getElementById('guestNameInput')) {
-      document.getElementById('guestNameInput').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addGuest();
-      });
     }
 
     // Countdown Funktion

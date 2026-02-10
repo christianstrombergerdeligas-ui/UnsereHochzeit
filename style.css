@@ -4196,6 +4196,22 @@ button#hostLogin {
   box-shadow: var(--shadow-md);
 }
 
+.dual-link-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.dual-link-buttons .external-link-button {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.95rem;
+}
+
 .button-arrow {
   font-size: 1.3rem;
   transition: transform 0.3s ease;
@@ -5438,8 +5454,11 @@ button#hostLogin {
   font-size: 1.1rem;
   color: var(--text-dark);
   max-width: 700px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.8;
+  word-spacing: 0.05em;
+  letter-spacing: 0.3px;
+  text-align: center;
 }
 
 .spotify-player-wrapper {
@@ -5478,6 +5497,12 @@ button#hostLogin {
 
   .playlist-container h2 {
     font-size: 1.8rem;
+  }
+
+  .playlist-container > p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
   }
 
   .spotify-player-wrapper {
