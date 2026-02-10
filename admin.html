@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin-Panel - Unsere Hochzeit</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💒</text></svg>">
   <link href="style.css" rel="stylesheet">
   <script src="admin.js"></script>
 </head>
@@ -37,6 +38,97 @@
           <p class="admin-hero-lead">Verwaltung und Übersicht der Hochzeitswebsite</p>
         </div>
       </div>
+
+      <!-- Countdown zur Hochzeit -->
+      <section class="countdown-admin">
+        <div class="countdown-content">
+          <h2>⏰ Countdown zur Hochzeit</h2>
+          <div class="countdown-display">
+            <div class="countdown-item">
+              <span id="daysUntil" class="countdown-number">0</span>
+              <span class="countdown-label">Tage</span>
+            </div>
+            <div class="countdown-item">
+              <span id="hoursUntil" class="countdown-number">0</span>
+              <span class="countdown-label">Stunden</span>
+            </div>
+          </div>
+          <p class="countdown-date">bis zum 15. Mai 2026, 10:30 Uhr</p>
+        </div>
+      </section>
+
+      <!-- Schnellzugriff Statistiken -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📋</div>
+          <h3>Anmeldungen</h3>
+          <a href="https://docs.google.com/spreadsheets/d/1pHiCuhNfCphu-kKfhQZCjK4CdD8iYDgTXxTt3iL1QH8/edit" target="_blank" class="stat-link">Sheets öffnen →</a>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📔</div>
+          <h3>Gästebuch</h3>
+          <a href="https://docs.google.com/spreadsheets/d/1FUX4_U9ZZ9qPX97uGUVOy9RVefLf7loBMCz5I2VySsY/edit" target="_blank" class="stat-link">Sheets öffnen →</a>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📸</div>
+          <h3>Fotos</h3>
+          <a href="https://photos.app.goo.gl/TNup4TKHrsxtD7hz8" target="_blank" class="stat-link">Album öffnen →</a>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎵</div>
+          <h3>Musik-Playlist</h3>
+          <a href="https://open.spotify.com/playlist/17b3q1HeMFWk0jFn1SCz0F" target="_blank" class="stat-link">Spotify öffnen →</a>
+        </div>
+      </section>
+
+      <!-- Hochzeitsplanung Checkliste -->
+      <section class="checklist-container">
+        <h2>✓ Hochzeitsplanung</h2>
+        <div class="checklist">
+          <div class="checklist-item">
+            <input type="checkbox" id="task1" onchange="saveTasks()">
+            <label for="task1">
+              <span class="task-title">Location-Details final bestätigen</span>
+              <span class="due-date">bis 01.03.2026</span>
+            </label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="task2" onchange="saveTasks()">
+            <label for="task2">
+              <span class="task-title">Menükarten drucken lassen</span>
+              <span class="due-date">bis 01.04.2026</span>
+            </label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="task3" onchange="saveTasks()">
+            <label for="task3">
+              <span class="task-title">Finale Gästeliste prüfen</span>
+              <span class="due-date">bis 01.05.2026</span>
+            </label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="task4" onchange="saveTasks()">
+            <label for="task4">
+              <span class="task-title">Dekoration organisieren</span>
+              <span class="due-date">bis 01.05.2026</span>
+            </label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="task5" onchange="saveTasks()">
+            <label for="task5">
+              <span class="task-title">Musik-Playlist finalisieren</span>
+              <span class="due-date">bis 10.05.2026</span>
+            </label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="task6" onchange="saveTasks()">
+            <label for="task6">
+              <span class="task-title">Hochzeitsrede vorbereiten</span>
+              <span class="due-date">bis 13.05.2026</span>
+            </label>
+          </div>
+        </div>
+      </section>
 
       <section class="admin-status-section">
         <div class="status-container">
@@ -95,7 +187,60 @@
           </div>
         </div>
       </section>
+      <!-- Gästelisten-Verwaltung -->
+      <section class="guest-list-section">
+        <div class="guest-list-container">
+          <h2>👥 Gästelisten-Verwaltung</h2>
+          <p class="section-intro">Vergleich zwischen Gästeliste und Anmeldungen</p>
+          
+          <!-- Gast hinzufügen -->
+          <div class="add-guest-form">
+            <input type="text" id="guestNameInput" placeholder="Name des Gastes eingeben..." class="guest-input">
+            <button onclick="addGuest()" class="add-guest-btn">+ Gast hinzufügen</button>
+            <button onclick="exportGuests()" class="export-btn">📥 Exportieren</button>
+            <button onclick="document.getElementById('importFile').click()" class="import-btn">📤 Importieren</button>
+            <input type="file" id="importFile" style="display:none;" accept=".json,.csv" onchange="importGuests(event)">
+          </div>
 
+          <!-- Statistiken -->
+          <div class="guest-stats">
+            <div class="stat-box confirmed">
+              <div class="stat-number" id="confirmedCount">0</div>
+              <div class="stat-label">✅ Zugesagt</div>
+            </div>
+            <div class="stat-box declined">
+              <div class="stat-number" id="declinedCount">0</div>
+              <div class="stat-label">❌ Abgesagt</div>
+            </div>
+            <div class="stat-box pending">
+              <div class="stat-number" id="pendingCount">0</div>
+              <div class="stat-label">⏳ Ausstehend</div>
+            </div>
+            <div class="stat-box total">
+              <div class="stat-number" id="totalCount">0</div>
+              <div class="stat-label">👥 Gesamt</div>
+            </div>
+          </div>
+
+          <!-- Gästelisten-Tabelle -->
+          <div class="guest-list-table-wrapper">
+            <table class="guest-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Aktion</th>
+                </tr>
+              </thead>
+              <tbody id="guestTableBody">
+                <tr class="empty-state">
+                  <td colspan="3">📋 Noch keine Gäste hinzugefügt. Starten Sie mit "+ Gast hinzufügen"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
       <section class="admin-links-section">
         <div class="links-container">
           <h2>📊 Daten & Verwaltung</h2>
@@ -150,6 +295,16 @@
   </footer>
 
   <script>
+  // Stelle sicher, dass Admin-Modus verfügbar ist
+  window.isAdminMode = () => {
+    try {
+      return localStorage.getItem('adminLoggedIn') === 'true';
+    } catch (e) {
+      return false;
+    }
+  };
+  </script>
+  <script>
   document.addEventListener('DOMContentLoaded', () => {
     const adminSection = document.getElementById('adminOnlySection');
     const notAdminSection = document.getElementById('notAdminSection');
@@ -186,6 +341,203 @@
       document.getElementById('danksagungStatus').innerHTML = 
         today >= danksagungDate ? '✅ Sichtbar für alle' : '🔒 Versteckt bis 16.05.2026';
     }
+
+    // Gästelisten-Funktionen
+    function addGuest() {
+      const input = document.getElementById('guestNameInput');
+      const name = input.value.trim();
+      
+      if (!name) {
+        alert('Bitte einen Namen eingeben!');
+        return;
+      }
+      
+      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
+      
+      if (guests.some(g => g.name.toLowerCase() === name.toLowerCase())) {
+        alert('Dieser Gast existiert bereits!');
+        return;
+      }
+      
+      guests.push({ name, status: 'pending' });
+      localStorage.setItem('weddingGuests', JSON.stringify(guests));
+      input.value = '';
+      updateGuestList();
+    }
+
+    function removeGuest(name) {
+      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
+      guests = guests.filter(g => g.name !== name);
+      localStorage.setItem('weddingGuests', JSON.stringify(guests));
+      updateGuestList();
+    }
+
+    function setGuestStatus(name, status) {
+      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
+      const guest = guests.find(g => g.name === name);
+      if (guest) {
+        guest.status = status;
+        localStorage.setItem('weddingGuests', JSON.stringify(guests));
+        updateGuestList();
+      }
+    }
+
+    function exportGuests() {
+      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
+      
+      if (guests.length === 0) {
+        alert('Keine Gäste zum Exportieren vorhanden!');
+        return;
+      }
+      
+      // CSV exportieren
+      let csv = 'Name,Status\n';
+      guests.forEach(guest => {
+        csv += `"${guest.name}","${guest.status}"\n`;
+      });
+      
+      // File Download
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `gaestenliste_${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    }
+
+    function importGuests(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const content = e.target.result;
+          let guests = [];
+          
+          if (file.name.endsWith('.csv')) {
+            // CSV Parse
+            const lines = content.split('\n');
+            for (let i = 1; i < lines.length; i++) {
+              if (lines[i].trim() === '') continue;
+              const [name, status] = lines[i].split(',').map(s => s.trim().replace(/^"|"$/g, ''));
+              if (name) {
+                guests.push({ name, status: status || 'pending' });
+              }
+            }
+          } else if (file.name.endsWith('.json')) {
+            // JSON Parse
+            guests = JSON.parse(content);
+          } else {
+            alert('Nur .csv oder .json Dateien werden unterstützt!');
+            return;
+          }
+          
+          if (guests.length === 0) {
+            alert('Keine gültigen Gäste in der Datei gefunden!');
+            return;
+          }
+          
+          if (confirm(`${guests.length} Gäste importieren und bestehende Daten ersetzen?`)) {
+            localStorage.setItem('weddingGuests', JSON.stringify(guests));
+            updateGuestList();
+            alert('✅ Gäste erfolgreich importiert!');
+          }
+        } catch (err) {
+          alert('❌ Fehler beim Importieren: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      
+      // Reset file input
+      event.target.value = '';
+    }
+
+    function updateGuestList() {
+      let guests = JSON.parse(localStorage.getItem('weddingGuests')) || [];
+      const tbody = document.getElementById('guestTableBody');
+      
+      if (guests.length === 0) {
+        tbody.innerHTML = '<tr class="empty-state"><td colspan="3">📋 Noch keine Gäste hinzugefügt. Starten Sie mit "+ Gast hinzufügen"</td></tr>';
+      } else {
+        tbody.innerHTML = guests.map(guest => `
+          <tr class="guest-row status-${guest.status}">
+            <td class="guest-name">${guest.name}</td>
+            <td class="guest-status">
+              <select onchange="setGuestStatus('${guest.name}', this.value)" class="status-select">
+                <option value="pending" ${guest.status === 'pending' ? 'selected' : ''}>⏳ Ausstehend</option>
+                <option value="confirmed" ${guest.status === 'confirmed' ? 'selected' : ''}>✅ Zugesagt</option>
+                <option value="declined" ${guest.status === 'declined' ? 'selected' : ''}>❌ Abgesagt</option>
+              </select>
+            </td>
+            <td class="guest-action">
+              <button onclick="removeGuest('${guest.name}')" class="delete-btn">🗑️</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+      
+      // Statistiken aktualisieren
+      const confirmed = guests.filter(g => g.status === 'confirmed').length;
+      const declined = guests.filter(g => g.status === 'declined').length;
+      const pending = guests.filter(g => g.status === 'pending').length;
+      
+      document.getElementById('confirmedCount').textContent = confirmed;
+      document.getElementById('declinedCount').textContent = declined;
+      document.getElementById('pendingCount').textContent = pending;
+      document.getElementById('totalCount').textContent = guests.length;
+    }
+
+    // Gästeliste beim Laden initialisieren
+    updateGuestList();
+
+    // Enter-Taste zum Hinzufügen aktivieren
+    if (document.getElementById('guestNameInput')) {
+      document.getElementById('guestNameInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addGuest();
+      });
+    }
+
+    // Countdown Funktion
+    function updateCountdown() {
+      const weddingDate = new Date(2026, 4, 15, 10, 30);
+      const now = new Date();
+      const diffTime = weddingDate - now;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      
+      document.getElementById('daysUntil').textContent = diffDays;
+      document.getElementById('hoursUntil').textContent = diffHours;
+    }
+
+    // Checkliste speichern
+    function saveTasks() {
+      const tasks = {};
+      for (let i = 1; i <= 6; i++) {
+        tasks[`task${i}`] = document.getElementById(`task${i}`).checked;
+      }
+      localStorage.setItem('weddingTasks', JSON.stringify(tasks));
+    }
+
+    // Checkliste laden
+    function loadTasks() {
+      const saved = localStorage.getItem('weddingTasks');
+      if (saved) {
+        const tasks = JSON.parse(saved);
+        for (let key in tasks) {
+          const checkbox = document.getElementById(key);
+          if (checkbox) checkbox.checked = tasks[key];
+        }
+      }
+    }
+
+    // Countdown und Tasks initialisieren
+    updateCountdown();
+    loadTasks();
+    setInterval(updateCountdown, 60000);
 
     updateAdminView();
     window.addEventListener('adminStateChanged', updateAdminView);

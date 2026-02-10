@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unterhaltung - Unsere Hochzeit</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100%22><text y=%22.9em%22 font-size=%2290%22>💒</text></svg>">
+  <link href="style.css" rel="stylesheet">
+  <script src="admin.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Unsere Hochzeit</h1>
+      <button id="hamburger" class="hamburger">☰</button>
+      <button id="adminToggle" class="admin-toggle" title="Admin">🔒</button>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Start</a>
+      <a href="geschichte.html" id="historyLink" style="display:none;">Unsere Geschichte</a>
+      <a href="termine.html">Termine & Orte</a>
+      <a href="anmeldung.html">Anmeldung zur Feier</a>
+      <a href="ablaufplan.html" id="ablaufplanLink" style="display:none;">Ablaufplan</a>
+      <a href="buffet.html" id="buffetLink" style="display:none;">Buffet</a>
+      <a href="fotos.html">Fotos</a>
+      <a href="unterhaltung.html">Unterhaltung</a>
+      <a href="gaestebuch.html" id="guestbookLink" style="display:none;">Gästebuch</a>
+      <a href="danksagung.html" id="danksagungLink" style="display:none;">Danksagung</a>
+      <a href="admin.html" id="adminLink" style="display:none;">⚙️ Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-icon">🎵</div>
+        <h1>Unterhaltung</h1>
+        <p class="hero-subtitle">Musik und Spaß für unseren großen Tag</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="content-wrapper">
+        <!-- Hochzeits-Playlist -->
+        <div class="entertainment-card">
+          <h2>🎶 Unsere Hochzeits-Playlist</h2>
+          <p class="intro-text">Eine sorgfältig zusammengestellte Auswahl unserer Lieblingssongs zum Tanzen, Feiern und Genießen.</p>
+          
+          <div class="spotify-player-container">
+            <iframe 
+              style="border-radius:12px" 
+              src="https://open.spotify.com/embed/playlist/17b3q1HeMFWk0jFn1SCz0F?utm_source=generator&theme=0" 
+              width="100%" 
+              height="380" 
+              frameBorder="0" 
+              allowfullscreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Musik-Kategorien -->
+        <div class="entertainment-sections">
+          <div class="entertainment-box">
+            <div class="box-icon">💃</div>
+            <h3>Zum Tanzen</h3>
+            <p>Mit den besten Dance- und Party-Hits wird die Tanzfläche rocken!</p>
+          </div>
+
+          <div class="entertainment-box">
+            <div class="box-icon">🕺</div>
+            <h3>Klassiker</h3>
+            <p>Zeitlose Hochzeits-Klassiker für romantische und festliche Momente.</p>
+          </div>
+
+          <div class="entertainment-box">
+            <div class="box-icon">🎤</div>
+            <h3>Lieblingssongs</h3>
+            <p>Unsere persönlichen Lieblingssongs, die uns begleitet haben.</p>
+          </div>
+
+          <div class="entertainment-box">
+            <div class="box-icon">🍾</div>
+            <h3>Stimmungsvolle Momente</h3>
+            <p>Entspannte Musik für Dinner, Reden und besondere Augenblicke.</p>
+          </div>
+        </div>
+
+        <!-- Musik-Tipps -->
+        <div class="entertainment-info">
+          <h2>🎧 Musik-Tipps</h2>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-number">1</div>
+              <h3>Lautsprecherwünsche</h3>
+              <p>Habt ihr einen besonderen Song-Wunsch? Sprecht unseren DJ oder die Band an!</p>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-number">2</div>
+              <h3>Erste Tänze</h3>
+              <p>Besonders ausgewählte Klassiker für unsere speziellen Momente.</p>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-number">3</div>
+              <h3>Dance Floor Favorites</h3>
+              <p>Die absoluten Highlights, wenn die Tanzfläche zum Leben erwacht!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zusätzliche Unterhaltung -->
+        <div class="entertainment-info">
+          <h2>🎪 Weitere Highlights</h2>
+          <p class="info-text">
+            Unsere Hochzeit wird nicht nur musikalisch ein voller Erfolg! 
+            Wir haben verschiedene Highlights geplant, um den Tag unvergesslich zu machen:
+          </p>
+          <ul class="features-list">
+            <li>🎬 Fotobooth mit lustige Requisiten</li>
+            <li>📸 Professionelle Fotograf und Videograf</li>
+            <li>🎂 Überraschungen und spezielle Momente</li>
+            <li>🍽️ Köstliches Buffet mit vielen Leckereien</li>
+            <li>🥂 Toasts und herzliche Reden</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jenica und Christian
+  </footer>
+
+  <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Admin-Status prüfen
+      const adminBtn = document.getElementById('adminToggle');
+      if (adminBtn) {
+        adminBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          const isAdmin = localStorage.getItem('adminLoggedIn') === 'true';
+          if (isAdmin) {
+            // Admin logout
+            localStorage.setItem('adminLoggedIn', false);
+            alert('Admin-Modus deaktiviert.');
+            window.dispatchEvent(new Event('adminStateChanged'));
+          } else {
+            // Admin login
+            const password = prompt('Admin-Passwort eingeben:');
+            if (password) {
+              // SHA-256 Hash des Passworts
+              const msgBuffer = new TextEncoder().encode(password);
+              const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+              const hashArray = Array.from(new Uint8Array(hashBuffer));
+              const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+              
+              if (hash === 'a9d5b1efde4fa888bcde914dd1eec6b67011b32af8e57a242a497a5156298fc4') {
+                localStorage.setItem('adminLoggedIn', 'true');
+                alert('Admin-Modus aktiviert!');
+                window.dispatchEvent(new Event('adminStateChanged'));
+              } else {
+                alert('Falsches Passwort!');
+              }
+            }
+          }
+          location.reload();
+        });
+      }
+
+      // Hamburger Menu
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

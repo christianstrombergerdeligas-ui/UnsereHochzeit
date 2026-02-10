@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unsere Geschichte</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💒</text></svg>">
   <link href="style.css" rel="stylesheet">
   <script src="admin.js"></script>
 </head>
@@ -110,6 +111,14 @@
           </div>
         </article>
       </div>
+
+      <!-- Admin-Only Paar-Foto Platzhalter -->
+      <div class="admin-only-image story-couple-photo">
+        <div class="couple-photo-container">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=600&fit=crop" alt="Jenica & Christian - Gemeinsame Erinnerung" loading="lazy">
+          <p class="admin-label">🔒 Admin: Paarfoto-Platzhalter</p>
+        </div>
+      </div>
     </section>
     <!-- GESCHICHTE_CONTENT_END -->
 
@@ -131,6 +140,13 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Alle Funktionalität wird von admin.js bereitgestellt
+      
+      // Admin-Only Bilder anzeigen
+      if (window.isAdminMode && window.isAdminMode()) {
+        document.querySelectorAll('.admin-only-image').forEach(el => {
+          el.style.display = 'block';
+        });
+      }
     });
   </script>
 </body>

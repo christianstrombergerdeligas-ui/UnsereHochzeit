@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anmeldung zur Feier</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💒</text></svg>">
   <link href="style.css" rel="stylesheet">
   <script src="admin.js"></script>
 </head>
@@ -59,6 +60,14 @@
       </div>
     </section>
 
+    <!-- Admin-Only Paar-Foto Platzhalter -->
+    <section class="admin-only-image rsvp-couple-photo">
+      <div class="couple-photo-container">
+        <img src="https://images.unsplash.com/photo-1529634597860-2feb8ea991c3?w=800&h=600&fit=crop" alt="Jenica & Christian" loading="lazy">
+        <p class="admin-label">🔒 Admin: Paarfoto-Platzhalter</p>
+      </div>
+    </section>
+
     <section class="rsvp-form-section">
       <div class="rsvp-box">
         <div class="rsvp-box-icon">💌</div>
@@ -105,7 +114,7 @@
         </div>
         <div class="faq-item">
           <h3>❓ Gibt es einen Dresscode?</h3>
-          <p>Festliche Kleidung ist erwünscht. Mehr Details findet ihr im Ablaufplan, der ab Mai verfügbar ist.</p>
+          <p>Festliche Kleidung ist erwünscht, gerne in Pastelltönen. Mehr Details findet ihr im Ablaufplan, der ab Mai verfügbar ist.</p>
         </div>
       </div>
     </section>
@@ -114,6 +123,17 @@
   <footer>
     © 2026 Jenica und Christian
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Admin-Only Bilder anzeigen
+      if (window.isAdminMode && window.isAdminMode()) {
+        document.querySelectorAll('.admin-only-image').forEach(el => {
+          el.style.display = 'block';
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
