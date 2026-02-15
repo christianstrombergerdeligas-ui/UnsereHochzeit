@@ -30,13 +30,24 @@
     </nav>
   </header>
 
+    </div>
+  </section>
+
+    <section class="rsvp-form-section">
+      <h2>Jetzt anmelden</h2>
+      <form id="anmeldungForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Anmelden</button>
+      </form>
+      <div id="anmeldungStatus"></div>
 
   <main>
     <section class="rsvp-hero">
       <div class="rsvp-content">
         <div class="rsvp-icon">✨</div>
         <h1>Anmeldung zur Feier</h1>
-        <p class="rsvp-lead">Wir würden uns riesig freuen, wenn ihr unseren großen Tag mit uns feiert! Bitte gebt uns bis zum 01. Mai 2026 Bescheid.</p>
+        <p class="rsvp-lead">Wir würden uns riesig freuen, wenn ihr unseren großen Tag mit uns feiert! Bitte gebt uns bis zum 01. April 2026 Bescheid.</p>
       </div>
     </section>
 
@@ -46,7 +57,7 @@
         <div class="rsvp-card">
           <div class="rsvp-card-icon">📅</div>
           <h3>Anmeldefrist</h3>
-          <p>Bitte meldet euch bis spätestens <strong>01. Mai 2026</strong> an, damit wir besser planen können.</p>
+          <p>Bitte meldet euch bis spätestens <strong>01. April 2026</strong> an, damit wir besser planen können.</p>
         </div>
         <div class="rsvp-card">
           <div class="rsvp-card-icon">👥</div>
@@ -125,4 +136,24 @@
   </footer>
 
 </body>
+<script>
+document.getElementById('anmeldungForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+
+  const response = await fetch('https://anmeldung-worker.christian-stromberger-deligas.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name })
+  });
+
+  const statusDiv = document.getElementById('anmeldungStatus');
+  if (response.ok) {
+    statusDiv.textContent = 'Anmeldung erfolgreich!';
+  } else {
+    const text = await response.text();
+    statusDiv.textContent = 'Fehler: ' + text;
+  }
+});
+</script>
 </html>

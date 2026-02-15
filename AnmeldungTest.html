@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anmeldung zur Feier (Test)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💒</text></svg>">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Unsere Hochzeit (Testformular)</h1>
+    </div>
+  </header>
+  <main>
+    <section class="rsvp-form-section">
+      <h2>Jetzt anmelden (Test)</h2>
+      <form id="anmeldungFormTest">
+                <label for="kommt">Wirst du kommen? <span style="color:red">*</span></label>
+                <select id="kommt" name="kommt" required>
+                  <option value="">Bitte auswählen</option>
+                  <option value="Ja">Ja</option>
+                  <option value="Nein">Nein</option>
+                </select>
+        <label for="name">Dein Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="begleitung">Name der Begleitperson (optional):</label>
+        <input type="text" id="begleitung" name="begleitung" placeholder="z.B. Max Mustermann">
+        <label for="kinder">Anzahl Kinder:</label>
+        <input type="number" id="kinder" name="kinder" min="0" value="0">
+        <button type="submit">Anmelden</button>
+      </form>
+      <div id="anmeldungStatusTest"></div>
+    </section>
+  </main>
+  <script>
+  document.getElementById('anmeldungFormTest').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const begleitung = document.getElementById('begleitung').value;
+    const kinder = document.getElementById('kinder').value;
+
+    const response = await fetch('https://anmeldung-worker.christian-stromberger-deligas.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, begleitung, kinder })
+    });
+
+    const statusDiv = document.getElementById('anmeldungStatusTest');
+    if (response.ok) {
+      statusDiv.textContent = 'Anmeldung erfolgreich!';
+    } else {
+      const text = await response.text();
+      statusDiv.textContent = 'Fehler: ' + text;
+    }
+  });
+  </script>
+</body>
+</html>
