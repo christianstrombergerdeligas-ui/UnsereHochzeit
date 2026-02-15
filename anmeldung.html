@@ -30,16 +30,6 @@
     </nav>
   </header>
 
-    </div>
-  </section>
-
-    <section class="rsvp-form-section">
-      <h2>Jetzt anmelden</h2>
-      <form id="anmeldungForm" action="#" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Anmelden</button>
-      </form>
 
   <main>
     <section class="rsvp-hero">
@@ -135,24 +125,4 @@
   </footer>
 
 </body>
-<script>
-document.getElementById('anmeldungForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-
-  const response = await fetch('https://anmeldung-worker.christian-stromberger-deligas.workers.dev', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name })
-  });
-
-  const statusDiv = document.getElementById('anmeldungStatus');
-  if (response.ok) {
-    statusDiv.textContent = 'Anmeldung erfolgreich!';
-  } else {
-    const text = await response.text();
-    statusDiv.textContent = 'Fehler: ' + text;
-  }
-});
-</script>
 </html>
